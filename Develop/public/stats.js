@@ -1,5 +1,11 @@
 // get all workout data from back-end
+$(document).ready(function () {
+    
+    $("#send").on("click", function (event) {
+        event.preventDefault();
 
+      
+      
 fetch("/api/workouts/range")
   .then(response => {
     return response.json();
