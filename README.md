@@ -1,5 +1,9 @@
 # work-in-no-work-out
-![](https://img.shields.io/badge/WorkOut-orWorkIn-181717?style=for-the-badge&logo=Autodesk)
+![](https://img.shields.io/badge/WorkOut-start-181717?style=for-the-badge&logo=nodemon)
+
+![](https://img.shields.io/badge/WorkOut-sports-181717?style=for-the-badge&logo=Dribble)
+
+![](https://img.shields.io/badge/WorkOut-steps-181717?style=for-the-badge&logo=fitbit)
 
 ` As a USER, I want to be able to VIEW, create and track daily workouts. 
 I WANT to be able to log MULTIPLE exercises in a workout on a given day. 
