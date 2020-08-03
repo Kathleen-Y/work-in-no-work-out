@@ -1,7 +1,7 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "d",
   "version": "1.0.0",
-  "description": "",
+  "description": "A dynamic workout tracker that uses a Mongo database with a Mongoose schema and handles routes with Express. The app tracks the name, type, weight, sets, reps, distance and duration of exercise.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "init": "^0.1.2",
-    "mongoose": "^5.3.16",
-    "morgan": "^1.9.1"
-  }
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kathleen-Y/work-in-no-work-out.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kathleen-Y/work-in-no-work-out/issues"
+  },
+  "homepage": "https://github.com/Kathleen-Y/work-in-no-work-out#readme"
 }
