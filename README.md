@@ -31,7 +31,7 @@ For this assignment, you'll create a workout tracker. You have already been prov
 > 1.npm install
 
 ## Instructions
-> Open your browser and go to [ExerciseMe](https://.herokuapp.com/). From there, click on new workout and start creating your prefered workout.
+> Open your browser and go to [work-in-no-work-out](https://.herokuapp.com/). From there, click on new workout and start creating your prefered workout.
 
 ## Example Gif
 ![](public/assets/images/_.gif)
