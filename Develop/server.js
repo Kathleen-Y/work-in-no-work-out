@@ -15,10 +15,6 @@ app.use(express.static("public"));
 
 // mongo workout
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-  
-// mongo buget
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
-
   useNewUrlParser: true,
   useFindAndModify: false
 });
