@@ -1,5 +1,5 @@
 # work-in-no-work-out
-[Live App](https://herokuapp.com/)
+[Live App](https://workinworkout.herokuapp.com/)
 
 ![](https://img.shields.io/badge/WorkIn-start-181717?style=plastic&logo=mongoDB)
 ![](https://img.shields.io/badge/WorkOut-steps-181717?style=plastic&logo=fitbit)
@@ -31,7 +31,7 @@ For this assignment, you'll create a workout tracker. You have already been prov
 > 1.npm install
 
 ## Instructions
-> Open your browser and go to [work-in-no-work-out](https://.herokuapp.com/). From there, click on new workout and start creating your prefered workout.
+> Open your browser and go to [work-in-no-work-out](https://workinworkout.herokuapp.com/). From there, click on new workout and start creating your prefered workout.
 
 ## Example Gif
 ![](public/assets/images/_.gif)
