@@ -14,7 +14,6 @@ I should also be able to TRACK the name, type, weight, sets, reps, and duration 
 For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create `Mongo database with a Mongoose schema` and `handle routes with Express.`
 
 # Technologies Used
-
 1. mongoDB with mongoose
 2. Node.js
 3. Express
@@ -25,7 +24,7 @@ For this assignment, you'll create a workout tracker. You have already been prov
 # Table of Contents
 * [Installation](#installation)
 * [Instructions](#instructions)
-* [Author](#author)
+* [Contact](#contact)
 
 ## Installation
 > 1.npm install
@@ -33,13 +32,7 @@ For this assignment, you'll create a workout tracker. You have already been prov
 ## Instructions
 > Open your browser and go to [work-in-no-work-out](https://workinworkout.herokuapp.com/). From there, click on new workout and start creating your prefered workout.
 
-## Example Gif
-![](public/assets/images/_.gif)
-
-## Author 
-
-**Kathleen Yoannon**
-Email: kyoannon@gmail.com
-GitHub: https://github.com/Kathleen-Y
-
+## Contact
+* GitHub: [@profile](https://github.com/Kathleen-Y)
+* Twitter: [@Ros3p3tal](https://twitter.com/Ros3p3tal)
 
