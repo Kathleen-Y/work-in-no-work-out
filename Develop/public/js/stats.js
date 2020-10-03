@@ -1,8 +1,3 @@
-// get all workout data from back-end
-const data = { username: 'range' };
-
-      
-      
 fetch("/api/workouts/range")
   .then(response => {
     return response.json();
@@ -14,9 +9,7 @@ fetch("/api/workouts/range")
   console.error('Error:', error);
 });
 
-
 API.getWorkoutsInRange()
-
   function generatePalette() {
     const arr = [
     "#003f5c",
@@ -202,7 +195,7 @@ function duration(data) {
       durations.push(exercise.duration);
     });
   });
-.catch(error => {
+catch(error) {
   console.error('Error:', error);
 });
   return durations;
