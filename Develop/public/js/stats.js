@@ -1,43 +1,27 @@
-fetch("/api/workouts/range")
+fetch("/api/budget/range")
   .then(response => {
     return response.json();
   })
   .then(data => {
     populateChart(data);
-  })
-.catch(error => {
-  console.error('Error:', error);
-});
+  });
 
-API.getWorkoutsInRange()
+API.getBudgetsInRange()
   function generatePalette() {
     const arr = [
     "#003f5c",
     "#2f4b7c",
     "#665191",
     "#a05195",
-    "#d45087",
-    "#f95d6a",
-    "#ff7c43",
-    "ffa600",
-    "#003f5c",
-    "#2f4b7c",
-    "#665191",
-    "#a05195",
-    "#d45087",
-    "#f95d6a",
-    "#ff7c43",
-    "ffa600"
+    "#d45087"
   ]
-.catch(error => {
-  console.error('Error:', error);
-});
+
   return arr;
   }
 function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
-  let workouts = workoutNames(data);
+  let budgets = budgetNames(data);
   const colors = generatePalette();
 
   let line = document.querySelector("#canvas").getContext("2d");
@@ -59,7 +43,7 @@ function populateChart(data) {
       ],
       datasets: [
         {
-          label: "Workout Duration In Minutes",
+          label: "Budget Duration In Minutes",
           backgroundColor: "red",
           borderColor: "red",
           data: durations,
@@ -149,7 +133,7 @@ function populateChart(data) {
   let pieChart = new Chart(pie, {
     type: "pie",
     data: {
-      labels: workouts,
+      labels: budgets,
       datasets: [
         {
           label: "Excercises Performed",
@@ -169,7 +153,7 @@ function populateChart(data) {
   let donutChart = new Chart(pie2, {
     type: "doughnut",
     data: {
-      labels: workouts,
+      labels: budgets,
       datasets: [
         {
           label: "Excercises Performed",
@@ -190,41 +174,32 @@ function populateChart(data) {
 function duration(data) {
   let durations = [];
 
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
+  data.forEach(budget => {
+    budget.exercises.forEach(exercise => {
       durations.push(exercise.duration);
     });
   });
-catch(error) {
-  console.error('Error:', error);
-});
   return durations;
 }
 
 function calculateTotalWeight(data) {
   let total = [];
 
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
+  data.forEach(budget => {
+    budget.exercises.forEach(exercise => {
       total.push(exercise.weight);
     });
   });
-.catch(error => {
-  console.error('Error:', error);
-});
   return total;
 }
 
-function workoutNames(data) {
-  let workouts = [];
+function budgetNames(data) {
+  let budgets = [];
 
-  data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
-      workouts.push(exercise.name);
+  data.forEach(budget => {
+    budget.exercises.forEach(exercise => {
+      budgets.push(exercise.name);
     });
   });
-  .catch(error => {
-  console.error('Error:', error);
-});
-  return workouts;
+  return budgets;
 }

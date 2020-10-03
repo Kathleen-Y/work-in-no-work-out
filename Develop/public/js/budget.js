@@ -1,21 +1,21 @@
-async function initWorkout() {
-  const lastWorkout = await API.getLastWorkout();
-  console.log("Last workout:", lastWorkout);
-  if (lastWorkout) {
+async function initBudget() {
+  const lastBudget = await API.getLastBudget();
+  console.log("Last budget:", lastBudget);
+  if (lastBudget) {
     document
       .querySelector("a[href='/exercise?']")
-      .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
+      .setAttribute("href", `/exercise?id=${lastBudget._id}`);
 
-    const workoutSummary = {
-      date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
-      numExercises: lastWorkout.exercises.length,
-      ...tallyExercises(lastWorkout.exercises)
+    const budgetSummary = {
+      date: formatDate(lastBudget.day),
+      totalDuration: lastBudget.totalDuration,
+      numExercises: lastBudget.exercises.length,
+      ...tallyExercises(lastBudget.exercises)
     };
 
-    renderWorkoutSummary(workoutSummary);
+    renderBudgetSummary(budgetSummary);
   } else {
-    renderNoWorkoutText()
+    renderNoBudgetText()
   }
 }
 
@@ -43,11 +43,11 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(options);
 }
 
-function renderWorkoutSummary(summary) {
-  const container = document.querySelector(".workout-stats");
-  const workoutKeyMap = {
+function renderBudgetSummary(summary) {
+  const container = document.querySelector(".budget-stats");
+  const budgetKeyMap = {
     date: "Date",
-    totalDuration: "Total Workout Duration",
+    totalDuration: "Total Budget Duration",
     numExercises: "Exercises Performed",
     totalWeight: "Total Weight Lifted",
     totalSets: "Total Sets Performed",
@@ -59,7 +59,7 @@ function renderWorkoutSummary(summary) {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
 
-    strong.textContent = workoutKeyMap[key];
+    strong.textContent = budgetKeyMap[key];
     const textNode = document.createTextNode(`: ${summary[key]}`);
 
     p.appendChild(strong);
@@ -69,14 +69,14 @@ function renderWorkoutSummary(summary) {
   });
 }
 
-function renderNoWorkoutText() {
-  const container = document.querySelector(".workout-stats");
+function renderNoBudgetText() {
+  const container = document.querySelector(".budget-stats");
   const p = document.createElement("p");
   const strong = document.createElement("strong");
-  strong.textContent = "You have not created a workout yet!"
+  strong.textContent = "You have not created a budget yet!"
 
   p.appendChild(strong);
   container.appendChild(p);
 }
 
-initWorkout();
+initBudget();
