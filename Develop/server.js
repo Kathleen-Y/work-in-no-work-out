@@ -18,7 +18,7 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://kjy_24:<80NdUHQsFOSVEtog>@clusterkjy.lcvdc.mongodb.net/<kjy_24>?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
-  const re = client.db("test").re("devices");
+  const collection = client.db("test").collection("devices");
   // perform actions on the collection object
   client.close();
 });
