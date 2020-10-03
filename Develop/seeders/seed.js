@@ -1,11 +1,11 @@
 let mongoose = require("mongoose");
 let db = require("../models");
-mongoose.connect("mongodb://localhost/budget", {
+mongoose.connect("mongodb://localhost/tracker", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
-let budgetSeed = [
+let trackerSeed = [
   {
     day: new Date().setDate(new Date().getDate()-10),
     exercises: [
@@ -134,8 +134,8 @@ let budgetSeed = [
   }
 ];
 
-db.Budget.deleteMany({})
-  .then(() => db.Budget.collection.insertMany(budgetSeed))
+db.Tracker.deleteMany({})
+  .then(() => db.Tracker.collection.insertMany(TrackerSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

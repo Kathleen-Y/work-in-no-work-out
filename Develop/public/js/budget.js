@@ -1,21 +1,21 @@
-async function initBudget() {
-  const lastBudget = await API.getLastBudget();
-  console.log("Last budget:", lastBudget);
-  if (lastBudget) {
+async function initTracker() {
+  const lastTracker = await API.getLastTracker();
+  console.log("Last Tracker:", lastTracker);
+  if (lastTracker) {
     document
       .querySelector("a[href='/exercise?']")
-      .setAttribute("href", `/exercise?id=${lastBudget._id}`);
+      .setAttribute("href", `/exercise?id=${lastTracker._id}`);
 
-    const budgetSummary = {
-      date: formatDate(lastBudget.day),
-      totalDuration: lastBudget.totalDuration,
-      numExercises: lastBudget.exercises.length,
-      ...tallyExercises(lastBudget.exercises)
+    const trackerSummary = {
+      date: formatDate(lastTracker.day),
+      totalDuration: lastTracker.totalDuration,
+      numExercises: lastTracker.exercises.length,
+      ...tallyExercises(lastTracker.exercises)
     };
 
-    renderBudgetSummary(budgetSummary);
+    renderTrackerSummary(trackerSummary);
   } else {
-    renderNoBudgetText()
+    renderNoTrackerText()
   }
 }
 
@@ -43,11 +43,11 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(options);
 }
 
-function renderBudgetSummary(summary) {
-  const container = document.querySelector(".budget-stats");
-  const budgetKeyMap = {
+function renderTrackerSummary(summary) {
+  const container = document.querySelector(".tracker-stats");
+  const trackerKeyMap = {
     date: "Date",
-    totalDuration: "Total Budget Duration",
+    totalDuration: "Total Tracker Duration",
     numExercises: "Exercises Performed",
     totalWeight: "Total Weight Lifted",
     totalSets: "Total Sets Performed",
@@ -59,7 +59,7 @@ function renderBudgetSummary(summary) {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
 
-    strong.textContent = budgetKeyMap[key];
+    strong.textContent = trackerKeyMap[key];
     const textNode = document.createTextNode(`: ${summary[key]}`);
 
     p.appendChild(strong);
@@ -69,14 +69,14 @@ function renderBudgetSummary(summary) {
   });
 }
 
-function renderNoBudgetText() {
-  const container = document.querySelector(".budget-stats");
+function renderNoTrackerText() {
+  const container = document.querySelector(".tracker-stats");
   const p = document.createElement("p");
   const strong = document.createElement("strong");
-  strong.textContent = "You have not created a budget yet!"
+  strong.textContent = "You have not created a tracker yet!"
 
   p.appendChild(strong);
   container.appendChild(p);
 }
 
-initBudget();
+initTracker();

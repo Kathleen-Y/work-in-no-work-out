@@ -1,4 +1,4 @@
-const budgetTypeSelect = document.querySelector("#type");
+const trackerTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
 const resistanceForm = document.querySelector(".resistance-form");
 const cardioNameInput = document.querySelector("#cardio-name");
@@ -12,33 +12,33 @@ const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
-const newBudget = document.querySelector(".new-budget")
+const newTracker = document.querySelector(".new-tracker")
 
-let budgetType = null;
+let trackerType = null;
 let shouldNavigateAway = false;
 
 async function initExercise() {
-  let budget;
+  let tracker;
 
   if (location.search.split("=")[1] === undefined) {
-    budget = await API.createBudget()
-    console.log(budget)
+    tracker = await API.createTracker()
+    console.log(tracker)
   }
-  if (budget) {
-    location.search = "?id=" + budget._id;
+  if (tracker) {
+    location.search = "?id=" + tracker._id;
   }
 
 }
 
 initExercise();
 
-function handleBudgetTypeChange(event) {
-  budgetType = event.target.value;
+function handleTrackerTypeChange(event) {
+  trackerType = event.target.value;
 
-  if (budgetType === "cardio") {
+  if (trackerType === "cardio") {
     cardioForm.classList.remove("d-none");
     resistanceForm.classList.add("d-none");
-  } else if (budgetType === "resistance") {
+  } else if (trackerType === "resistance") {
     resistanceForm.classList.remove("d-none");
     cardioForm.classList.add("d-none");
   } else {
@@ -52,7 +52,7 @@ function handleBudgetTypeChange(event) {
 function validateInputs() {
   let isValid = true;
 
-  if (budgetType === "resistance") {
+  if (trackerType === "resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
     }
@@ -72,7 +72,7 @@ function validateInputs() {
     if (resistanceDurationInput.value.trim() === "") {
       isValid = false;
     }
-  } else if (budgetType === "cardio") {
+  } else if (trackerType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
     }
@@ -98,23 +98,23 @@ function validateInputs() {
 async function handleFormSubmit(event) {
   event.preventDefault();
 
-  let budgetData = {};
+  let trackerData = {};
 
-  if (budgetType === "cardio") {
-    budgetData.type = "cardio";
-    budgetData.name = cardioNameInput.value.trim();
-    budgetData.distance = Number(distanceInput.value.trim());
-    budgetData.duration = Number(durationInput.value.trim());
-  } else if (budgetType === "resistance") {
-    budgetData.type = "resistance";
-    budgetData.name = nameInput.value.trim();
-    budgetData.weight = Number(weightInput.value.trim());
-    budgetData.sets = Number(setsInput.value.trim());
-    budgetData.reps = Number(repsInput.value.trim());
-    budgetData.duration = Number(resistanceDurationInput.value.trim());
+  if (trackerType === "cardio") {
+    trackerData.type = "cardio";
+    trackerData.name = cardioNameInput.value.trim();
+    trackerData.distance = Number(distanceInput.value.trim());
+    trackerData.duration = Number(durationInput.value.trim());
+  } else if (trackerType === "resistance") {
+    trackerData.type = "resistance";
+    trackerData.name = nameInput.value.trim();
+    trackerData.weight = Number(weightInput.value.trim());
+    trackerData.sets = Number(setsInput.value.trim());
+    trackerData.reps = Number(repsInput.value.trim());
+    trackerData.duration = Number(resistanceDurationInput.value.trim());
   }
 
-  await API.addExercise(budgetData);
+  await API.addExercise(trackerData);
   clearInputs();
   toast.classList.add("success");
 }
@@ -137,8 +137,8 @@ function clearInputs() {
   weightInput.value = "";
 }
 
-if (budgetTypeSelect) {
-  budgetTypeSelect.addEventListener("change", handleBudgetTypeChange);
+if (trackerTypeSelect) {
+  trackerTypeSelect.addEventListener("change", handleTrackerTypeChange);
 }
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {

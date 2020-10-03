@@ -1,4 +1,4 @@
-fetch("/api/budget/range")
+fetch("/api/tracker/range")
   .then(response => {
     return response.json();
   })
@@ -6,7 +6,7 @@ fetch("/api/budget/range")
     populateChart(data);
   });
 
-API.getBudgetInRange()
+API.getTrackerInRange()
   function generatePalette() {
     const arr = [
     "#003f5c",
@@ -21,7 +21,7 @@ API.getBudgetInRange()
 function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
-  let budget = budgetNames(data);
+  let tracker = trackerNames(data);
   const colors = generatePalette();
 
   let line = document.querySelector("#canvas").getContext("2d");
@@ -43,7 +43,7 @@ function populateChart(data) {
       ],
       datasets: [
         {
-          label: "Budget Duration In Minutes",
+          label: "Tracker Duration In Minutes",
           backgroundColor: "red",
           borderColor: "red",
           data: durations,
@@ -133,7 +133,7 @@ function populateChart(data) {
   let pieChart = new Chart(pie, {
     type: "pie",
     data: {
-      labels: budget,
+      labels: tracker,
       datasets: [
         {
           label: "Excercises Performed",
@@ -153,7 +153,7 @@ function populateChart(data) {
   let donutChart = new Chart(pie2, {
     type: "doughnut",
     data: {
-      labels: budget,
+      labels: tracker,
       datasets: [
         {
           label: "Excercises Performed",
@@ -174,8 +174,8 @@ function populateChart(data) {
 function duration(data) {
   let durations = [];
 
-  data.forEach(budget => {
-    budget.exercises.forEach(exercise => {
+  data.forEach(tracker => {
+    tracker.exercises.forEach(exercise => {
       durations.push(exercise.duration);
     });
   });
@@ -185,21 +185,21 @@ function duration(data) {
 function calculateTotalWeight(data) {
   let total = [];
 
-  data.forEach(budget => {
-    budget.exercises.forEach(exercise => {
+  data.forEach(tracker => {
+    tracker.exercises.forEach(exercise => {
       total.push(exercise.weight);
     });
   });
   return total;
 }
 
-function budgetNames(data) {
-  let budget = [];
+function trackerNames(data) {
+  let tracker = [];
 
-  data.forEach(budget => {
-    budget.exercises.forEach(exercise => {
-      budget.push(exercise.name);
+  data.forEach(tracker => {
+    tracker.exercises.forEach(exercise => {
+      tracker.push(exercise.name);
     });
   });
-  return budget;
+  return tracker;
 }

@@ -1,7 +1,7 @@
 {
-  "name": "budget",
+  "name": "tracker",
   "version": "1.0.0",
-  "description": "Budget tracker that uses a Mongo Db with a Mongoose schema and handles routes with Express (handlebars).",
+  "description": "Tracker tracker that uses a Mongo Db with a Mongoose schema and handles routes with Express (handlebars).",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
