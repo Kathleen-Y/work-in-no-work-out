@@ -6,7 +6,7 @@ fetch("/api/budget/range")
     populateChart(data);
   });
 
-API.getBudgetsInRange()
+API.getBudgetInRange()
   function generatePalette() {
     const arr = [
     "#003f5c",
@@ -21,7 +21,7 @@ API.getBudgetsInRange()
 function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
-  let budgets = budgetNames(data);
+  let budget = budgetNames(data);
   const colors = generatePalette();
 
   let line = document.querySelector("#canvas").getContext("2d");
@@ -133,7 +133,7 @@ function populateChart(data) {
   let pieChart = new Chart(pie, {
     type: "pie",
     data: {
-      labels: budgets,
+      labels: budget,
       datasets: [
         {
           label: "Excercises Performed",
@@ -153,7 +153,7 @@ function populateChart(data) {
   let donutChart = new Chart(pie2, {
     type: "doughnut",
     data: {
-      labels: budgets,
+      labels: budget,
       datasets: [
         {
           label: "Excercises Performed",
@@ -194,12 +194,12 @@ function calculateTotalWeight(data) {
 }
 
 function budgetNames(data) {
-  let budgets = [];
+  let budget = [];
 
   data.forEach(budget => {
     budget.exercises.forEach(exercise => {
-      budgets.push(exercise.name);
+      budget.push(exercise.name);
     });
   });
-  return budgets;
+  return budget;
 }
