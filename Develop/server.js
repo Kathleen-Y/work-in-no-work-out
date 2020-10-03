@@ -14,10 +14,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Tracker", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+const MONGODB_URI = process.env.MONGOATLAS_URI || "mongodb://localhost/budget";
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
 
 app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
