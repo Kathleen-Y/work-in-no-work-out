@@ -14,8 +14,14 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const MONGODB_URI = process.env.MONGOATLAS_URI || "mongodb://localhost/tracker";
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://kjy_24:<80NdUHQsFOSVEtog>@clusterkjy.lcvdc.mongodb.net/<kjy_24>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const re = client.db("test").re("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
