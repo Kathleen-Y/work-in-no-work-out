@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Tracker", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tracker", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
