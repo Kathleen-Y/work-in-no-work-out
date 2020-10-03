@@ -1,22 +1,12 @@
-// get all workout data from back-end
-const data = { username: 'range' };
-
-      
-      
 fetch("/api/workouts/range")
   .then(response => {
     return response.json();
   })
   .then(data => {
     populateChart(data);
-  })
-.catch(error => {
-  console.error('Error:', error);
-});
-
+  });
 
 API.getWorkoutsInRange()
-
   function generatePalette() {
     const arr = [
     "#003f5c",
@@ -36,9 +26,7 @@ API.getWorkoutsInRange()
     "#ff7c43",
     "ffa600"
   ]
-.catch(error => {
-  console.error('Error:', error);
-});
+
   return arr;
   }
 function populateChart(data) {
@@ -202,9 +190,6 @@ function duration(data) {
       durations.push(exercise.duration);
     });
   });
-.catch(error => {
-  console.error('Error:', error);
-});
   return durations;
 }
 
@@ -216,9 +201,6 @@ function calculateTotalWeight(data) {
       total.push(exercise.weight);
     });
   });
-.catch(error => {
-  console.error('Error:', error);
-});
   return total;
 }
 
@@ -230,8 +212,5 @@ function workoutNames(data) {
       workouts.push(exercise.name);
     });
   });
-  .catch(error => {
-  console.error('Error:', error);
-});
   return workouts;
 }
