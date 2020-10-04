@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const uri = "mongodb+srv://kjy_24:<80NdUHQsFOSVEtog>@clusterkjy.lcvdc.mongodb.net/<re>?retryWrites=true&w=majority";
+const uri = "mongodb+srv://kjy_24:<Snow123Joy>@clusterkjy.lcvdc.mongodb.net/<re>?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");

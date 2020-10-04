@@ -1,4 +1,4 @@
-fetch("/api/tracker/range")
+fetch("/api/trackers/range")
   .then(response => {
     return response.json();
   })
@@ -6,7 +6,7 @@ fetch("/api/tracker/range")
     populateChart(data);
   });
 
-API.getTrackerInRange()
+API.getTrackersInRange()
   function generatePalette() {
     const arr = [
     "#003f5c",
@@ -21,7 +21,7 @@ API.getTrackerInRange()
 function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
-  let tracker = trackerNames(data);
+  let trackers = trackerNames(data);
   const colors = generatePalette();
 
   let line = document.querySelector("#canvas").getContext("2d");
@@ -133,7 +133,7 @@ function populateChart(data) {
   let pieChart = new Chart(pie, {
     type: "pie",
     data: {
-      labels: tracker,
+      labels: trackers,
       datasets: [
         {
           label: "Excercises Performed",
@@ -153,7 +153,7 @@ function populateChart(data) {
   let donutChart = new Chart(pie2, {
     type: "doughnut",
     data: {
-      labels: tracker,
+      labels: trackers,
       datasets: [
         {
           label: "Excercises Performed",
@@ -194,12 +194,12 @@ function calculateTotalWeight(data) {
 }
 
 function trackerNames(data) {
-  let tracker = [];
+  let trackers = [];
 
   data.forEach(tracker => {
     tracker.exercises.forEach(exercise => {
-      tracker.push(exercise.name);
+      trackers.push(exercise.name);
     });
   });
-  return tracker;
+  return trackers;
 }
