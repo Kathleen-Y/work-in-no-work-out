@@ -5,7 +5,7 @@ const compression = require("compression");
 const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 27017;
 
 app.use(logger("dev"));
 
