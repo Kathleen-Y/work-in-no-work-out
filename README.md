@@ -8,10 +8,13 @@ I WANT to be able to log MULTIPLE exercises in a workout on a given day.
 I should also be able to TRACK the name, type, weight, sets, reps, and duration of exercise.
  If the exercise is a cardio exercise, I should be able to track my distance traveled. `
 
+![Click here](https://workinworkout.herokuapp.com/)
+
 ## Languages
-- 
-- 
-- 
+- mongoDb Atlas
+- mongoose
+- morgan
+- handlbars
 
 ## Contact
 ![Github](profile)
