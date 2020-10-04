@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const TrackerSchema =  new Schema({
+const trackerSchema =  new Schema({
     day:{
         type: Date,
         default:new Date().setDate(new Date().getDate())
@@ -8,5 +8,5 @@ const TrackerSchema =  new Schema({
     exercises: Array
 })
 
-const Tracker = mongoose.model("Tracker", TrackerSchema);
+const Tracker = mongoose.model("Tracker", trackerSchema);
 module.exports = Tracker

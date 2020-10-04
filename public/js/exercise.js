@@ -24,10 +24,10 @@ async function initExercise() {
     tracker = await API.createTracker()
     console.log(tracker)
   }
+
   if (tracker) {
     location.search = "?id=" + tracker._id;
   }
-
 }
 
 initExercise();
@@ -45,7 +45,6 @@ function handleTrackerTypeChange(event) {
     cardioForm.classList.add("d-none");
     resistanceForm.classList.add("d-none");
   }
-
   validateInputs();
 }
 

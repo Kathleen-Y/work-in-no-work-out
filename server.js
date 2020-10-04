@@ -19,10 +19,9 @@ const uri = "mongodb+srv://kjy_24:<80NdUHQsFOSVEtog>@clusterkjy.lcvdc.mongodb.ne
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
   client.close();
-}
-)
+})
+
 app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
 
