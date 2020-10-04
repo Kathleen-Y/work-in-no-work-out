@@ -8,5 +8,5 @@ const TrackerSchema =  new Schema({
     exercises: Array
 })
 
-const Tracker = mongoose.model("Tracker", trackerSchema);
+const Tracker = mongoose.model("Tracker", TrackerSchema);
 module.exports = Tracker
